@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  creationTimestamp: null
+  name: hello
+  namespace: rvaldez
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - http:
+      paths:
+      - backend:
+          service:
+            name: hellov1
+            port:
+              number: 8080
+        path: /v1
+        pathType: Exact
+      - backend:
+          service:
+            name: hellov2
+            port:
+              number: 8080
+        path: /v2
+        pathType: Exact
+status:
+  loadBalancer: {}

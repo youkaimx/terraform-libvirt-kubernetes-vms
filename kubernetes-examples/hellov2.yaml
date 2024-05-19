@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: hellov2
+  name: hellov2
+  namespace: rvaldez
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hellov2
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: hellov2
+    spec:
+      containers:
+      - image: gcr.io/google-samples/hello-app:2.0
+        name: google-samples
+        resources: {}
+status: {}

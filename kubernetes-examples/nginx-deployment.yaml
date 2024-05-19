@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: test-deployment
+  name: test-deployment
+  namespace: rvaldez
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: test-deployment
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: test-deployment
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+        resources:
+          requests:
+            cpu: "1500m"
+            memory: "2Gi"
+status: {}
